@@ -59,7 +59,8 @@ ADD ./src/common/scripts $STARTUPDIR
 RUN $INST_SCRIPTS/set_user_permission.sh $STARTUPDIR $HOME
 
 ### Install bitcoin gui wallet
-RUN apt-add-repository ppa:bitcoin/bitcoin && apt-get update && apt-get install bitcoin-qt -y
+RUN wget https://github.com/zkSNACKs/WalletWasabi/releases/download/v1.1.12/Wasabi-1.1.12.deb
+RUN yes | dpkg -i Wasabi-1.1.12.deb
 
 ### parallel install
 RUN apt-get install -y parallel
